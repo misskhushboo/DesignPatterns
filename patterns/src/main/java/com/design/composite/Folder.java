@@ -6,6 +6,7 @@ import java.util.Stack;
 
 /**
  * Folder will have more methods specific to folder.
+ * This is the composite class which has leaf classess.
  */
 public class Folder implements IFileSystem{
 
@@ -13,11 +14,13 @@ public class Folder implements IFileSystem{
     String name;
     String metadata;
 
+    {
+        children=new ArrayList<>();
+    }
 
-    public Folder(String name, String metadata, Stack<IFileSystem> child){
+    public Folder(String name, String metadata, List<IFileSystem> child){
         this.name=name;
         this.metadata=metadata;
-        this.children=new ArrayList();
     }
 
     public void addFileSystemNode(IFileSystem child){
